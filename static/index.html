@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DMIXERAI</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238f81f8'/%3E%3Cstop offset='1' stop-color='%234f3ee0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M12 1.2 20.6 6v12L12 22.8 3.4 18V6z'/%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round' d='M10.2 8.6 6.9 12l3.3 3.4M13.8 8.6l3.3 3.4-3.3 3.4'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/assets/css/styles.css" />
+<link rel="stylesheet" href="/assets/vendor/highlight-github-dark.min.css" />
+<script src="/assets/vendor/marked.min.js"></script>
+<script src="/assets/vendor/highlight.min.js"></script>
+</head>
+<body>
+
+<!-- ================= ICON SPRITE ================= -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8f81f8"/>
+      <stop offset="1" stop-color="#4f3ee0"/>
+    </linearGradient>
+    <symbol viewBox="0 0 24 24" id="icon-logo">
+      <path fill="url(#logo-gradient)" d="M12 1.2 20.6 6v12L12 22.8 3.4 18V6z"/>
+      <path fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M10.2 8.6 6.9 12l3.3 3.4M13.8 8.6l3.3 3.4-3.3 3.4"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-home" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1H10v-6h4v6h3.5a1 1 0 0 0 1-1v-9"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-sparkles" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 3l1.5 4L16.5 8.5 12.5 10 11 14 9.5 10 5.5 8.5 9.5 7z"/><path d="M18.5 14l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-file" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 2.5h7l5 5V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1z"/><path d="M14 2.5V8h5"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-history" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4.5h4.5"/><path d="M12 7.5V12l3 2"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-chart" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2.5 20.5h19"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1h-.2a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.6v-.2a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.6 1h.2a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-send" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 3 3 10.5l7 3 3 7z"/><path d="M21 3 13.5 20.5l-3-7-7-3z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-download" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12"/><path d="M7 10.5 12 15.5 17 10.5"/><path d="M4 19.5h16"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-copy" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8.5" y="8.5" width="12" height="12" rx="1.5"/><path d="M15.5 8.5V4.5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-trash" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 6.5h16"/><path d="M8.5 6.5V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v2.5"/><path d="M6.5 6.5 7.3 20a1 1 0 0 0 1 .9h7.4a1 1 0 0 0 1-.9l.8-13.5"/><path d="M10.2 11v6M13.8 11v6"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-upload" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 16V4"/><path d="M7.5 8.5 12 4l4.5 4.5"/><path d="M4 19.5h16"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-check" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12.5 9.5 18 20 6"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-alert" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 22 20H2z"/><path d="M12 9.5v4.5"/><circle cx="12" cy="17" r="0.15" fill="currentColor" stroke-width="1.2"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-search" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-inbox" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 12h5l1.5 3h4l1.5-3h5"/><path d="M6 5.5h12l2.5 6.5v6a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1v-6z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-bolt" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2 4.5 13.5H11L10.5 22 19.5 10H13z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-report" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="2.5" width="14" height="19" rx="1.5"/><path d="M8 7.5h8M8 11.5h8M8 15.5h5"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-drag" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="6" r="0.6" fill="currentColor"/><circle cx="15" cy="6" r="0.6" fill="currentColor"/>
+      <circle cx="9" cy="12" r="0.6" fill="currentColor"/><circle cx="15" cy="12" r="0.6" fill="currentColor"/>
+      <circle cx="9" cy="18" r="0.6" fill="currentColor"/><circle cx="15" cy="18" r="0.6" fill="currentColor"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-chevron-up" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 15l7-7 7 7"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-chevron-down" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 9l7 7 7-7"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-plus" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M5 12h14"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-x" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-duplicate" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8.5" y="8.5" width="12" height="12" rx="1.5"/><path d="M15.5 8.5V4.5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-refresh" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 12a8.5 8.5 0 0 1 14.5-6"/><path d="M18.5 3.5V8h-4.5"/>
+      <path d="M20.5 12a8.5 8.5 0 0 1-14.5 6"/><path d="M5.5 20.5V16h4.5"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-edit" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-shield" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.5 19 5.5v6c0 5-3 8.5-7 10-4-1.5-7-5-7-10v-6z"/>
+      <path d="M9 12l2 2 4-4"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-wand" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 19 17 7"/><path d="M15 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/><path d="M5 5l.6 1.4L7 7l-1.4.6L5 9l-.6-1.4L3 7l1.4-.6z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="app-shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-mark" width="26" height="26" viewBox="0 0 24 24"><use href="#icon-logo"/></svg>
+      <div>
+        <div class="brand-name">DMIXERAI</div>
+        <div class="brand-sub">PRO</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-item active" data-view="dashboard">
+        <svg class="nav-icon"><use href="#icon-home"/></svg> Dashboard
+      </button>
+      <button class="nav-item" data-view="assistant">
+        <svg class="nav-icon"><use href="#icon-sparkles"/></svg> AI Assistant
+      </button>
+      <button class="nav-item" data-view="builder">
+        <svg class="nav-icon"><use href="#icon-grid"/></svg> Project Builder
+      </button>
+      <button class="nav-item" data-view="files">
+        <svg class="nav-icon"><use href="#icon-file"/></svg> File Analyzer
+      </button>
+      <button class="nav-item" data-view="report">
+        <svg class="nav-icon"><use href="#icon-report"/></svg> Report Generator
+      </button>
+      <button class="nav-item" data-view="detect">
+        <svg class="nav-icon"><use href="#icon-shield"/></svg> AI Detector
+      </button>
+      <button class="nav-item" data-view="history">
+        <svg class="nav-icon"><use href="#icon-history"/></svg> History
+      </button>
+      <button class="nav-item" data-view="analytics">
+        <svg class="nav-icon"><use href="#icon-chart"/></svg> Analytics
+      </button>
+      <button class="nav-item" data-view="settings">
+        <svg class="nav-icon"><use href="#icon-settings"/></svg> Settings
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="status-pill" id="connection-pill">
+        <span class="dot"></span> <span id="connection-text">Checking…</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="view active" id="view-dashboard">
+      <header class="view-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p class="subtitle">Enterprise AI coding assistant powered by Groq</p>
+        </div>
+      </header>
+
+      <div class="grid grid-4" id="dashboard-metrics">
+        <div class="card metric">
+          <div class="metric-label">Version</div>
+          <div class="metric-value" id="metric-version">—</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-label">Model</div>
+          <div class="metric-value" id="metric-model">—</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-label">Groq API</div>
+          <div class="metric-value" id="metric-status">—</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-label">Response Time</div>
+          <div class="metric-value" id="metric-time">—</div>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-sparkles"/></svg> AI Assistant</h3>
+          <ul class="feature-list">
+            <li>Chat with AI</li>
+            <li>Generate Code</li>
+            <li>Debug Code</li>
+            <li>Explain Code</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-grid"/></svg> Project Builder</h3>
+          <ul class="feature-list">
+            <li>Generate Projects</li>
+            <li>Generate SQL</li>
+            <li>Generate README</li>
+            <li>Generate Documentation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-chart"/></svg> Analytics</h3>
+          <ul class="feature-list">
+            <li>History</li>
+            <li>Usage</li>
+            <li>Statistics</li>
+            <li>Downloads</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>System Status</h3>
+        <div class="grid grid-2">
+          <ul class="status-list">
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> Python Environment</li>
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> FastAPI</li>
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> Groq SDK</li>
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> SQLite</li>
+          </ul>
+          <ul class="status-list">
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> Configuration Loaded</li>
+            <li class="ok" id="status-api-connected"><svg class="icon"><use href="#icon-check"/></svg> API Connected</li>
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> Project Initialized</li>
+            <li class="ok"><svg class="icon"><use href="#icon-check"/></svg> Ready to Generate Code</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI ASSISTANT -->
+    <section class="view" id="view-assistant">
+      <header class="view-header">
+        <div>
+          <h1>AI Assistant</h1>
+          <p class="subtitle">Your intelligent coding companion</p>
+        </div>
+        <div class="header-controls">
+          <label>Model
+            <select id="assistant-model" class="select"></select>
+          </label>
+          <label>Temperature
+            <input type="range" id="assistant-temp" min="0" max="1" step="0.1" value="0.2" />
+            <span id="assistant-temp-val">0.2</span>
+          </label>
+          <label>Max Tokens
+            <input type="range" id="assistant-tokens" min="512" max="8192" step="512" value="8192" />
+            <span id="assistant-tokens-val">8192</span>
+          </label>
+        </div>
+      </header>
+
+      <div class="tabs" data-group="assistant">
+        <button class="tab active" data-tab="chat">Chat</button>
+        <button class="tab" data-tab="generate">Code Generator</button>
+        <button class="tab" data-tab="debug">Debugger</button>
+        <button class="tab" data-tab="explain">Explainer</button>
+        <button class="tab" data-tab="optimize">Optimizer</button>
+        <button class="tab" data-tab="review">Reviewer</button>
+        <button class="tab" data-tab="security">Security Scanner</button>
+        <button class="tab" data-tab="document">Documentation</button>
+        <button class="tab" data-tab="commit">Commit Generator</button>
+      </div>
+
+      <!-- Chat -->
+      <div class="tab-panel active" data-panel="chat">
+        <div class="chat-window card" id="chat-window">
+          <div class="chat-empty" id="chat-empty">
+            <svg class="icon icon-lg"><use href="#icon-sparkles"/></svg>
+            <p>Ask anything about code — generate, debug, or talk through an idea.</p>
+            <div class="chat-starters" id="chat-starters">
+              <button type="button" class="chip" data-prompt="Explain the difference between a process and a thread, with a real-world analogy.">Explain a concept</button>
+              <button type="button" class="chip" data-prompt="Write a Python function that flattens an arbitrarily nested list.">Write a quick function</button>
+              <button type="button" class="chip" data-prompt="What are the trade-offs between SQL and NoSQL databases for a booking system?">Compare two approaches</button>
+              <button type="button" class="chip" data-prompt="Review this regex for catching email addresses and point out edge cases it misses: ^[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}$">Find edge cases</button>
+            </div>
+          </div>
+        </div>
+        <form class="chat-input-row" id="chat-form">
+          <label class="sr-only" for="chat-input">Chat message</label>
+          <textarea id="chat-input" rows="1" placeholder="Ask me anything… (Enter to send, Shift+Enter for a new line)"></textarea>
+          <button type="submit" class="btn primary icon-label"><svg class="icon"><use href="#icon-send"/></svg> Send</button>
+          <button type="button" class="btn ghost icon-btn" id="chat-clear" title="Clear chat"><svg class="icon"><use href="#icon-trash"/></svg></button>
+        </form>
+      </div>
+
+      <!-- Code Generator -->
+      <div class="tab-panel" data-panel="generate">
+        <div class="card form-card">
+          <div class="grid grid-2">
+            <label>Programming Language
+              <select id="gen-language" class="select"></select>
+            </label>
+            <label>Framework (optional)
+              <input type="text" id="gen-framework" placeholder="Django, React, Flask, FastAPI…" />
+            </label>
+          </div>
+          <label>Project Type
+            <select id="gen-type" class="select"></select>
+          </label>
+          <label>Describe what you want to build
+            <textarea id="gen-task" rows="8" placeholder="Create a REST API using FastAPI for Student Management with CRUD operations…"></textarea>
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" id="gen-include-tests" />
+            Include unit tests alongside the code
+          </label>
+          <button class="btn primary full icon-label" id="gen-submit"><svg class="icon"><use href="#icon-bolt"/></svg> Generate Code</button>
+        </div>
+        <div class="card result-card hidden" id="gen-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Generated Code</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="gen-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="gen-download" title="Download"><svg class="icon"><use href="#icon-download"/></svg></button>
+            </div>
+          </div>
+          <pre class="code-block"><code id="gen-result"></code></pre>
+        </div>
+      </div>
+
+      <!-- Debugger -->
+      <div class="tab-panel" data-panel="debug">
+        <div class="card form-card">
+          <label>Programming Language
+            <select id="debug-language" class="select"></select>
+          </label>
+          <label>Paste your code
+            <textarea id="debug-code" rows="12"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="debug-submit"><svg class="icon"><use href="#icon-search"/></svg> Debug Code</button>
+        </div>
+        <div class="card result-card hidden" id="debug-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Debug Report</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="debug-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="debug-download" title="Download"><svg class="icon"><use href="#icon-download"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="debug-result"></div>
+        </div>
+      </div>
+
+      <!-- Explainer -->
+      <div class="tab-panel" data-panel="explain">
+        <div class="card form-card">
+          <label>Explanation Level
+            <select id="explain-level">
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </label>
+          <label>Paste code to explain
+            <textarea id="explain-code" rows="12"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="explain-submit"><svg class="icon"><use href="#icon-file"/></svg> Explain Code</button>
+        </div>
+        <div class="card result-card hidden" id="explain-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Explanation</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="explain-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="explain-result"></div>
+        </div>
+      </div>
+
+      <!-- Optimizer -->
+      <div class="tab-panel" data-panel="optimize">
+        <div class="card form-card">
+          <label>Paste code to optimize
+            <textarea id="optimize-code" rows="12"></textarea>
+          </label>
+          <label>Optimization Goals</label>
+          <div class="chip-select" id="optimize-goals">
+            <button type="button" class="chip active" data-goal="Performance">Performance</button>
+            <button type="button" class="chip active" data-goal="Readability">Readability</button>
+            <button type="button" class="chip" data-goal="Maintainability">Maintainability</button>
+            <button type="button" class="chip" data-goal="Memory Usage">Memory Usage</button>
+            <button type="button" class="chip" data-goal="Best Practices">Best Practices</button>
+            <button type="button" class="chip" data-goal="Security">Security</button>
+          </div>
+          <button class="btn primary full icon-label" id="optimize-submit"><svg class="icon"><use href="#icon-bolt"/></svg> Optimize Code</button>
+        </div>
+        <div class="card result-card hidden" id="optimize-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Optimized Result</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="optimize-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="optimize-download" title="Download"><svg class="icon"><use href="#icon-download"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="optimize-result"></div>
+        </div>
+      </div>
+
+      <!-- Reviewer -->
+      <div class="tab-panel" data-panel="review">
+        <div class="card form-card">
+          <label>Programming Language
+            <select id="review-language" class="select"></select>
+          </label>
+          <label>Paste your code
+            <textarea id="review-code" rows="12"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="review-submit"><svg class="icon"><use href="#icon-search"/></svg> Review Code</button>
+        </div>
+        <div class="card result-card hidden" id="review-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Review</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="review-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="review-result"></div>
+        </div>
+      </div>
+
+      <!-- Security Scanner -->
+      <div class="tab-panel" data-panel="security">
+        <div class="card form-card">
+          <label>Programming Language
+            <select id="security-language" class="select"></select>
+          </label>
+          <label>Paste your code
+            <textarea id="security-code" rows="12"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="security-submit"><svg class="icon"><use href="#icon-alert"/></svg> Scan for Vulnerabilities</button>
+        </div>
+        <div class="card result-card hidden" id="security-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Security Report</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="security-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="security-result"></div>
+        </div>
+      </div>
+
+      <!-- Documentation (code paste) -->
+      <div class="tab-panel" data-panel="document">
+        <div class="card form-card">
+          <label>Programming Language
+            <select id="document-language" class="select"></select>
+          </label>
+          <label>Paste your code
+            <textarea id="document-code" rows="12"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="document-submit"><svg class="icon"><use href="#icon-file"/></svg> Generate Documentation</button>
+        </div>
+        <div class="card result-card hidden" id="document-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Documented Code</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="document-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="document-download" title="Download"><svg class="icon"><use href="#icon-download"/></svg></button>
+            </div>
+          </div>
+          <pre class="code-block"><code id="document-result"></code></pre>
+        </div>
+      </div>
+
+      <!-- Commit Generator -->
+      <div class="tab-panel" data-panel="commit">
+        <div class="card form-card">
+          <label>Paste your diff, or describe the change
+            <textarea id="commit-diff" rows="14" placeholder="Paste `git diff` output, or just describe what changed…"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="commit-submit"><svg class="icon"><use href="#icon-bolt"/></svg> Generate Commit Message</button>
+        </div>
+        <div class="card result-card hidden" id="commit-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Commit &amp; PR</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="commit-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="commit-result"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT BUILDER -->
+    <section class="view" id="view-builder">
+      <header class="view-header">
+        <div>
+          <h1>Project Builder</h1>
+          <p class="subtitle">Scaffold projects, SQL, docs, and tests</p>
+        </div>
+      </header>
+
+      <div class="tabs" data-group="builder">
+        <button class="tab active" data-tab="project">Project</button>
+        <button class="tab" data-tab="api">API Generator</button>
+        <button class="tab" data-tab="database">Database Designer</button>
+        <button class="tab" data-tab="architecture">Architecture</button>
+        <button class="tab" data-tab="docker">Docker</button>
+        <button class="tab" data-tab="sql">SQL</button>
+        <button class="tab" data-tab="readme">README</button>
+        <button class="tab" data-tab="docs">Documentation</button>
+        <button class="tab" data-tab="tests">Unit Tests</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="project">
+        <div class="card form-card">
+          <div class="grid grid-2">
+            <label>Language
+              <select id="project-language">
+                <option>Python</option><option>Java</option><option>JavaScript</option><option>C++</option><option>C#</option>
+              </select>
+            </label>
+            <label>Framework
+              <input type="text" id="project-framework" placeholder="FastAPI, Flask, Django, React…" />
+            </label>
+          </div>
+          <label>Project Name
+            <input type="text" id="project-name" />
+          </label>
+          <label>Project Description
+            <textarea id="project-description" rows="8"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="project-submit"><svg class="icon"><use href="#icon-bolt"/></svg> Generate Project</button>
+        </div>
+        <div class="card result-card hidden" id="project-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Project Plan</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="project-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="project-download" title="Download as text"><svg class="icon"><use href="#icon-download"/></svg></button>
+              <button class="btn ghost icon-label small" id="project-zip" title="Download as ZIP"><svg class="icon"><use href="#icon-download"/></svg> ZIP</button>
+            </div>
+          </div>
+          <div class="markdown-body" id="project-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="api">
+        <div class="card form-card">
+          <div class="grid grid-2">
+            <label>Language
+              <select id="api-language">
+                <option>Python</option><option>Java</option><option>JavaScript</option><option>TypeScript</option><option>Go</option><option>C#</option>
+              </select>
+            </label>
+            <label>Framework
+              <input type="text" id="api-framework" placeholder="FastAPI, Express, Spring Boot…" />
+            </label>
+          </div>
+          <label>Describe the API
+            <textarea id="api-description" rows="10" placeholder="A REST API for a task manager: users, tasks, projects, with auth…"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="api-submit"><svg class="icon"><use href="#icon-bolt"/></svg> Generate API</button>
+        </div>
+        <div class="card result-card hidden" id="api-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> API Design</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="api-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="api-download" title="Download as text"><svg class="icon"><use href="#icon-download"/></svg></button>
+              <button class="btn ghost icon-label small" id="api-zip" title="Download as ZIP"><svg class="icon"><use href="#icon-download"/></svg> ZIP</button>
+            </div>
+          </div>
+          <div class="markdown-body" id="api-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="database">
+        <div class="card form-card">
+          <label>Describe your data
+            <textarea id="database-description" rows="10" placeholder="An e-commerce store: customers, orders, products, reviews…"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="database-submit"><svg class="icon"><use href="#icon-grid"/></svg> Design Data Model</button>
+        </div>
+        <div class="card result-card hidden" id="database-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Data Model</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="database-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="database-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="architecture">
+        <div class="card form-card">
+          <label>Describe the system
+            <textarea id="architecture-description" rows="10" placeholder="A real-time chat app supporting 10k concurrent users, with message history and file sharing…"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="architecture-submit"><svg class="icon"><use href="#icon-grid"/></svg> Design Architecture</button>
+        </div>
+        <div class="card result-card hidden" id="architecture-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Architecture</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="architecture-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="architecture-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="docker">
+        <div class="card form-card">
+          <div class="grid grid-2">
+            <label>Language
+              <input type="text" id="docker-language" placeholder="Python, Node.js, Go…" />
+            </label>
+            <label>Framework
+              <input type="text" id="docker-framework" placeholder="FastAPI, Express…" />
+            </label>
+          </div>
+          <label>Describe the service
+            <textarea id="docker-description" rows="8" placeholder="A FastAPI web service with a PostgreSQL database and Redis cache…"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="docker-submit"><svg class="icon"><use href="#icon-bolt"/></svg> Generate Docker Config</button>
+        </div>
+        <div class="card result-card hidden" id="docker-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Docker Configuration</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="docker-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn" id="docker-download" title="Download"><svg class="icon"><use href="#icon-download"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="docker-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="sql">
+        <div class="card form-card">
+          <label>SQL Dialect
+            <select id="sql-dialect">
+              <option>PostgreSQL</option>
+              <option>MySQL</option>
+              <option>SQLite</option>
+              <option>SQL Server</option>
+            </select>
+          </label>
+          <label>Describe your database
+            <textarea id="sql-description" rows="10"></textarea>
+          </label>
+          <button class="btn primary full" id="sql-submit">Generate SQL</button>
+        </div>
+        <div class="card result-card hidden" id="sql-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Generated SQL</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="sql-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <pre class="code-block"><code id="sql-result" class="language-sql"></code></pre>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="readme">
+        <div class="card form-card">
+          <label>Project Details
+            <textarea id="readme-details" rows="10"></textarea>
+          </label>
+          <button class="btn primary full" id="readme-submit">Generate README</button>
+        </div>
+        <div class="card result-card hidden" id="readme-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> README.md</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="readme-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="readme-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="docs">
+        <div class="card form-card">
+          <label>Describe your project
+            <textarea id="docs-details" rows="10"></textarea>
+          </label>
+          <button class="btn primary full" id="docs-submit">Generate Documentation</button>
+        </div>
+        <div class="card result-card hidden" id="docs-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Documentation</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="docs-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <div class="markdown-body" id="docs-result"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="tests">
+        <div class="card form-card">
+          <label>Language
+            <select id="tests-language">
+              <option>Python</option><option>Java</option><option>JavaScript</option><option>C++</option>
+            </select>
+          </label>
+          <label>Paste your code
+            <textarea id="tests-code" rows="10"></textarea>
+          </label>
+          <button class="btn primary full" id="tests-submit">Generate Unit Tests</button>
+        </div>
+        <div class="card result-card hidden" id="tests-result-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Unit Tests</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="tests-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <pre class="code-block"><code id="tests-result"></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILE ANALYZER -->
+    <section class="view" id="view-files">
+      <header class="view-header">
+        <div>
+          <h1>File Analyzer</h1>
+          <p class="subtitle">Upload files and analyze them using AI</p>
+        </div>
+      </header>
+
+      <div class="card">
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="file-input" hidden accept=".py,.java,.js,.jsx,.ts,.tsx,.cpp,.cc,.c,.h,.hpp,.cs,.go,.rs,.rb,.kt,.swift,.scala,.dart,.lua,.r,.php,.sql,.sh,.bash,.ps1,.pl,.txt,.md,.json,.yaml,.yml,.toml,.ini,.html,.css,.scss,.xml" aria-label="Upload a file to analyze" />
+          <div class="dropzone-label">
+            <svg class="icon icon-lg dropzone-icon"><use href="#icon-upload"/></svg>
+            <span>Drop a file here or <strong>browse</strong></span>
+            <span class="dropzone-hint">py, java, js/ts, go, rs, rb, kt, swift, php, sql, sh, and 20+ more…</span>
+          </div>
+        </div>
+        <div class="file-meta hidden" id="file-meta"></div>
+      </div>
+
+      <div class="card hidden" id="file-preview-card">
+        <h3><svg class="icon"><use href="#icon-file"/></svg> File Preview</h3>
+        <pre class="code-block"><code id="file-preview"></code></pre>
+      </div>
+
+      <div class="tabs hidden" data-group="files" id="file-tabs">
+        <button class="tab active" data-tab="explain">Explain</button>
+        <button class="tab" data-tab="debug">Debug</button>
+        <button class="tab" data-tab="optimize">Optimize</button>
+        <button class="tab" data-tab="docs">Documentation</button>
+        <button class="tab" data-tab="security">Security</button>
+        <button class="tab" data-tab="complexity">Complexity</button>
+      </div>
+
+      <div class="tab-panel active hidden" data-panel="explain" data-filepanel="1">
+        <button class="btn primary full icon-label" data-file-action="explain"><svg class="icon"><use href="#icon-file"/></svg> Explain File</button>
+        <div class="card result-card hidden">
+          <div class="result-header"><h3>Explanation</h3><div class="result-actions"><button class="btn ghost icon-btn" data-copy-file="explain" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button></div></div>
+          <div class="markdown-body" data-file-result="explain"></div>
+        </div>
+      </div>
+      <div class="tab-panel hidden" data-panel="debug" data-filepanel="1">
+        <button class="btn primary full icon-label" data-file-action="debug"><svg class="icon"><use href="#icon-search"/></svg> Debug File</button>
+        <div class="card result-card hidden">
+          <div class="result-header"><h3>Debug Report</h3><div class="result-actions"><button class="btn ghost icon-btn" data-copy-file="debug" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button></div></div>
+          <div class="markdown-body" data-file-result="debug"></div>
+        </div>
+      </div>
+      <div class="tab-panel hidden" data-panel="optimize" data-filepanel="1">
+        <button class="btn primary full icon-label" data-file-action="optimize"><svg class="icon"><use href="#icon-bolt"/></svg> Optimize File</button>
+        <div class="card result-card hidden">
+          <div class="result-header"><h3>Optimized Result</h3><div class="result-actions"><button class="btn ghost icon-btn" data-copy-file="optimize" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button></div></div>
+          <div class="markdown-body" data-file-result="optimize"></div>
+        </div>
+      </div>
+      <div class="tab-panel hidden" data-panel="docs" data-filepanel="1">
+        <button class="btn primary full icon-label" data-file-action="docs"><svg class="icon"><use href="#icon-file"/></svg> Generate Documentation</button>
+        <div class="card result-card hidden">
+          <div class="result-header"><h3>Documentation</h3><div class="result-actions"><button class="btn ghost icon-btn" data-copy-file="docs" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button></div></div>
+          <div class="markdown-body" data-file-result="docs"></div>
+        </div>
+      </div>
+      <div class="tab-panel hidden" data-panel="security" data-filepanel="1">
+        <button class="btn primary full icon-label" data-file-action="security"><svg class="icon"><use href="#icon-alert"/></svg> Scan for Vulnerabilities</button>
+        <div class="card result-card hidden">
+          <div class="result-header"><h3>Security Report</h3><div class="result-actions"><button class="btn ghost icon-btn" data-copy-file="security" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button></div></div>
+          <div class="markdown-body" data-file-result="security"></div>
+        </div>
+      </div>
+      <div class="tab-panel hidden" data-panel="complexity" data-filepanel="1">
+        <button class="btn primary full icon-label" data-file-action="complexity"><svg class="icon"><use href="#icon-chart"/></svg> Analyze Complexity</button>
+        <div class="card result-card hidden">
+          <div class="result-header"><h3>Complexity Report</h3><div class="result-actions"><button class="btn ghost icon-btn" data-copy-file="complexity" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button></div></div>
+          <div class="markdown-body" data-file-result="complexity"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORT GENERATOR -->
+    <section class="view" id="view-report">
+      <header class="view-header">
+        <div>
+          <h1>Report Generator</h1>
+          <p class="subtitle">Generate a professional, editable report from a single topic</p>
+        </div>
+      </header>
+
+      <!-- Screen 1: Settings -->
+      <div class="report-screen active" id="report-screen-settings">
+        <div class="card form-card">
+          <label>Report Topic
+            <input type="text" id="report-topic" placeholder="e.g. AI in Healthcare" />
+          </label>
+
+          <div class="field-group">
+            <span class="field-label">Report Type</span>
+            <div class="chip-select chip-select-radio" id="report-type-chips"></div>
+          </div>
+
+          <label>Template</label>
+          <div class="template-grid" id="report-template-grid">
+            <label class="template-card">
+              <input type="radio" name="report-template" value="academic" checked />
+              <div class="template-card-body">
+                <strong>Academic Style</strong>
+                <span>Cover, Certificate, Declaration, Abstract, Chapters, References, Appendix</span>
+              </div>
+            </label>
+            <label class="template-card">
+              <input type="radio" name="report-template" value="industry" />
+              <div class="template-card-body">
+                <strong>Industry Style</strong>
+                <span>Executive Summary, Objectives, Methodology, Implementation, Results, Conclusion</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="field-group">
+              <span class="field-label">Word Count</span>
+              <div class="chip-select chip-select-radio" id="report-wordcount-chips">
+                <button type="button" class="chip active" data-value="3000">3,000</button>
+                <button type="button" class="chip" data-value="5000">5,000</button>
+                <button type="button" class="chip" data-value="10000">10,000</button>
+                <button type="button" class="chip" data-value="25000">25,000</button>
+                <button type="button" class="chip" data-value="custom">Custom</button>
+              </div>
+              <label class="sr-only" for="report-wordcount-custom">Custom total word count</label>
+              <input type="number" id="report-wordcount-custom" class="hidden" placeholder="Custom total word count" min="500" step="500" />
+            </div>
+
+            <label>Language
+              <select id="report-language">
+                <option>English</option><option>Spanish</option><option>French</option><option>German</option>
+                <option>Portuguese</option><option>Hindi</option><option>Telugu</option><option>Japanese</option><option>Chinese</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid grid-2">
+            <label>Writing Style
+              <select id="report-style">
+                <option>Professional</option><option>Academic</option><option>Formal</option><option>Technical</option>
+                <option>Business</option><option>Simple</option><option>Humanized</option><option>Research</option><option>Journal Style</option>
+              </select>
+            </label>
+            <label>Citation Style
+              <select id="report-citation-style">
+                <option>IEEE</option><option>APA</option><option>Harvard</option><option>MLA</option><option>Chicago</option>
+              </select>
+            </label>
+          </div>
+
+          <label>Output Formats</label>
+          <div class="checkbox-group">
+            <label class="checkbox-row"><input type="checkbox" class="report-format" value="docx" checked /> DOCX</label>
+            <label class="checkbox-row"><input type="checkbox" class="report-format" value="pdf" checked /> PDF</label>
+            <label class="checkbox-row"><input type="checkbox" class="report-format" value="markdown" checked /> Markdown</label>
+          </div>
+
+          <button class="btn primary full icon-label" id="report-generate-toc"><svg class="icon"><use href="#icon-bolt"/></svg> Generate Table of Contents</button>
+        </div>
+      </div>
+
+      <!-- Screen 2: TOC editor -->
+      <div class="report-screen" id="report-screen-toc">
+        <div class="card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-report"/></svg> Table of Contents</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-label small" id="report-toc-reset"><svg class="icon"><use href="#icon-refresh"/></svg> Reset to AI</button>
+            </div>
+          </div>
+          <ul class="toc-list" id="report-toc-list"></ul>
+          <button class="btn ghost icon-label" id="report-toc-add"><svg class="icon"><use href="#icon-plus"/></svg> Add Chapter</button>
+        </div>
+        <div class="actions-row">
+          <button class="btn ghost" id="report-back-to-settings">Back</button>
+          <button class="btn primary full icon-label" id="report-generate-full"><svg class="icon"><use href="#icon-bolt"/></svg> Generate Full Report</button>
+        </div>
+      </div>
+
+      <!-- Screen 3: Generation progress -->
+      <div class="report-screen" id="report-screen-progress">
+        <div class="card report-progress-card">
+          <div class="report-progress-stage" id="report-progress-stage">Initializing AI…</div>
+          <div class="progress-track"><div class="progress-fill" id="report-progress-fill" style="width:0%"></div></div>
+          <div class="report-progress-meta">
+            <span id="report-progress-percent">0%</span>
+            <span id="report-progress-eta"></span>
+          </div>
+          <ul class="report-progress-log" id="report-progress-log"></ul>
+        </div>
+      </div>
+
+      <!-- Screen 4: Results -->
+      <div class="report-screen" id="report-screen-results">
+        <div class="card">
+          <div class="result-header">
+            <h3 id="report-result-title"><svg class="icon"><use href="#icon-report"/></svg> Report</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="report-copy-all" title="Copy full text"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+
+          <div class="report-metrics" id="report-metrics"></div>
+
+          <div class="actions-row report-export-row">
+            <button class="btn primary icon-label" id="report-preview-btn"><svg class="icon"><use href="#icon-report"/></svg> Preview Full Report</button>
+            <button class="btn primary icon-label" id="report-download-docx"><svg class="icon"><use href="#icon-download"/></svg> DOCX</button>
+            <button class="btn primary icon-label" id="report-download-pdf"><svg class="icon"><use href="#icon-download"/></svg> PDF</button>
+            <button class="btn primary icon-label" id="report-download-md"><svg class="icon"><use href="#icon-download"/></svg> Markdown</button>
+            <button class="btn ghost icon-label" id="report-regenerate-all"><svg class="icon"><use href="#icon-refresh"/></svg> Regenerate All</button>
+            <button class="btn ghost icon-label" id="report-start-over"><svg class="icon"><use href="#icon-x"/></svg> Start Over</button>
+          </div>
+        </div>
+
+        <div id="report-chapters-list"></div>
+
+        <div class="card result-card" id="report-references-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> References</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn" id="report-references-regen" title="Regenerate"><svg class="icon"><use href="#icon-refresh"/></svg></button>
+              <button class="btn ghost icon-btn" id="report-references-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <p class="report-disclaimer">AI-generated references — verify these against real sources before submitting or publishing anywhere accuracy matters.</p>
+          <div class="markdown-body" id="report-references-content"></div>
+        </div>
+      </div>
+
+      <!-- Screen 5: Full Document Preview -->
+      <div class="report-screen" id="report-screen-preview">
+        <div class="card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-report"/></svg> Document Preview</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-label small" id="report-preview-back"><svg class="icon"><use href="#icon-x"/></svg> Back to Results</button>
+            </div>
+          </div>
+          <p class="subtitle">This is how the report reads assembled end-to-end — the same content that goes into the DOCX/PDF export.</p>
+        </div>
+        <div class="card">
+          <div class="document-preview" id="report-preview-content"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI DETECTOR -->
+    <section class="view" id="view-detect">
+      <header class="view-header">
+        <div>
+          <h1>AI Detector</h1>
+          <p class="subtitle">Estimated AI-writing likelihood and document quality — a transparent statistical heuristic, not a trained classifier</p>
+        </div>
+      </header>
+
+      <!-- Screen 1: Upload / Paste -->
+      <div class="detect-screen active" id="detect-screen-upload">
+        <div class="card">
+          <div class="dropzone" id="detect-dropzone">
+            <input type="file" id="detect-file-input" hidden accept=".txt,.md,.markdown,.html,.htm,.docx,.pdf" aria-label="Upload a document to analyze" />
+            <div class="dropzone-label">
+              <svg class="icon icon-lg dropzone-icon"><use href="#icon-upload"/></svg>
+              <span>Drop a document here or <strong>browse</strong></span>
+              <span class="dropzone-hint">txt, md, html, docx, pdf</span>
+            </div>
+          </div>
+          <div class="file-meta hidden" id="detect-file-meta"></div>
+        </div>
+
+        <div class="card form-card">
+          <label>Or paste text directly
+            <textarea id="detect-text-input" rows="12" placeholder="Paste the text you want to analyze…"></textarea>
+          </label>
+          <button class="btn primary full icon-label" id="detect-analyze-btn"><svg class="icon"><use href="#icon-shield"/></svg> Analyze Document</button>
+        </div>
+      </div>
+
+      <!-- Screen 2: Results -->
+      <div class="detect-screen" id="detect-screen-results">
+        <div class="card">
+          <div class="result-header">
+            <h3 id="detect-result-title"><svg class="icon"><use href="#icon-shield"/></svg> Analysis</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-label small" id="detect-start-over"><svg class="icon"><use href="#icon-x"/></svg> New Analysis</button>
+            </div>
+          </div>
+
+          <div class="detect-overview">
+            <div class="detect-gauge-wrap">
+              <div id="detect-gauge"></div>
+              <div class="detect-gauge-caption">
+                <div class="detect-gauge-band" id="detect-band-label">—</div>
+                <div class="detect-gauge-sub" id="detect-confidence-label"></div>
+              </div>
+            </div>
+            <div class="detect-metrics-grid" id="detect-metrics-grid"></div>
+          </div>
+
+          <p class="report-disclaimer">This analysis estimates the likelihood of AI-assisted writing using statistical and linguistic signals. Results are probabilistic and should not be interpreted as conclusive proof of AI or human authorship.</p>
+        </div>
+
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-chart"/></svg> Contributing Factors</h3>
+          <div id="detect-factors"></div>
+        </div>
+
+        <div class="card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-settings"/></svg> Adjust Signal Weights</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-label small" id="detect-weights-reset"><svg class="icon"><use href="#icon-refresh"/></svg> Reset</button>
+            </div>
+          </div>
+          <p class="subtitle">Explore how sensitive the estimate is to each signal — recalculates instantly in your browser from the same computed signal values, no re-analysis needed.</p>
+          <div id="detect-weight-sliders"></div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-file"/></svg> Readability</h3>
+          <div class="table-wrap"><table class="table" id="detect-readability-table"></table></div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-grid"/></svg> Stylometric Analysis</h3>
+          <div class="detect-kv-list" id="detect-stylometry-list"></div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3><svg class="icon"><use href="#icon-file"/></svg> Citation Analysis</h3>
+            <div class="detect-kv-list" id="detect-citations"></div>
+          </div>
+
+          <div class="card">
+            <h3><svg class="icon"><use href="#icon-check"/></svg> Writing Mechanics</h3>
+            <div id="detect-mechanics"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-report"/></svg> Paragraph Breakdown</h3>
+          <p class="subtitle">Darker highlight = writing pattern more uniform relative to the rest of this document — a contributing signal, not proof of anything on its own.</p>
+          <div id="detect-paragraphs"></div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-file"/></svg> Document Preview</h3>
+          <p class="subtitle">The full text, with the same paragraph-level highlighting, read as a continuous document.</p>
+          <div class="document-preview detect-doc-preview" id="detect-doc-preview"></div>
+        </div>
+
+        <div class="card result-card" id="detect-insights-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-sparkles"/></svg> AI-Generated Insights</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn hidden" id="detect-insights-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+            </div>
+          </div>
+          <button class="btn primary full icon-label" id="detect-insights-btn"><svg class="icon"><use href="#icon-sparkles"/></svg> Get AI Insights &amp; Recommendations</button>
+          <div class="markdown-body hidden" id="detect-insights-content"></div>
+        </div>
+
+        <div class="card result-card" id="detect-humanize-card">
+          <div class="result-header">
+            <h3><svg class="icon"><use href="#icon-wand"/></svg> Humanize / Reduce AI Signals</h3>
+            <div class="result-actions">
+              <button class="btn ghost icon-btn hidden" id="detect-humanize-copy" title="Copy"><svg class="icon"><use href="#icon-copy"/></svg></button>
+              <button class="btn ghost icon-btn hidden" id="detect-humanize-download" title="Download"><svg class="icon"><use href="#icon-download"/></svg></button>
+            </div>
+          </div>
+          <p class="subtitle">Rewrites the text to vary sentence structure, reduce repetition, and diversify vocabulary — a style-naturalization pass, not a plagiarism-evasion tool. Meaning and facts are preserved.</p>
+          <button class="btn primary full icon-label" id="detect-humanize-btn"><svg class="icon"><use href="#icon-wand"/></svg> Humanize This Text</button>
+          <div class="markdown-body hidden" id="detect-humanize-content"></div>
+          <button class="btn ghost full icon-label hidden" id="detect-reanalyze-humanized"><svg class="icon"><use href="#icon-refresh"/></svg> Re-analyze Rewritten Text</button>
+        </div>
+
+        <div class="card hidden" id="detect-comparison-card">
+          <h3><svg class="icon"><use href="#icon-chart"/></svg> Before → After (Humanize)</h3>
+          <div id="detect-comparison-content"></div>
+        </div>
+
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-download"/></svg> Export Report</h3>
+          <div class="actions-row report-export-row">
+            <button class="btn primary icon-label" id="detect-export-docx"><svg class="icon"><use href="#icon-download"/></svg> DOCX</button>
+            <button class="btn primary icon-label" id="detect-export-pdf"><svg class="icon"><use href="#icon-download"/></svg> PDF</button>
+            <button class="btn primary icon-label" id="detect-export-md"><svg class="icon"><use href="#icon-download"/></svg> Markdown</button>
+            <button class="btn ghost icon-label" id="detect-export-json"><svg class="icon"><use href="#icon-download"/></svg> JSON</button>
+            <button class="btn ghost icon-label" id="detect-export-csv"><svg class="icon"><use href="#icon-download"/></svg> CSV</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section class="view" id="view-history">
+      <header class="view-header">
+        <div>
+          <h1>History</h1>
+          <p class="subtitle">View all your AI activities</p>
+        </div>
+        <div class="header-controls">
+          <div class="search-input">
+            <svg class="icon"><use href="#icon-search"/></svg>
+            <label class="sr-only" for="history-search">Search history</label>
+            <input type="text" id="history-search" placeholder="Search history…" />
+          </div>
+        </div>
+      </header>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table class="table" id="history-table">
+            <thead>
+              <tr><th>#</th><th>Feature</th><th>Prompt</th><th>Response</th><th>Date</th></tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+        </div>
+        <div class="empty-state hidden" id="history-empty">
+          <svg class="icon icon-lg"><use href="#icon-inbox"/></svg>
+          <p>No history yet — generate something and it'll show up here.</p>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button class="btn ghost icon-label" id="history-export"><svg class="icon"><use href="#icon-download"/></svg> Export CSV</button>
+        <button class="btn danger icon-label" id="history-clear"><svg class="icon"><use href="#icon-trash"/></svg> Clear History</button>
+      </div>
+    </section>
+
+    <!-- ANALYTICS -->
+    <section class="view" id="view-analytics">
+      <header class="view-header">
+        <div>
+          <h1>Analytics</h1>
+          <p class="subtitle">Monitor AI usage & project statistics</p>
+        </div>
+      </header>
+
+      <div class="grid grid-3" id="analytics-metrics"></div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-chart"/></svg> Feature Usage</h3>
+          <div id="chart-bar"></div>
+        </div>
+        <div class="card">
+          <h3><svg class="icon"><use href="#icon-chart"/></svg> Usage Distribution</h3>
+          <div id="chart-donut"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Activity Summary</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Feature</th><th>Requests</th></tr></thead>
+            <tbody id="analytics-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <button class="btn danger icon-label" id="analytics-reset"><svg class="icon"><use href="#icon-trash"/></svg> Reset Analytics</button>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="view" id="view-settings">
+      <header class="view-header">
+        <div>
+          <h1>Settings</h1>
+          <p class="subtitle">Manage DMIXERAI</p>
+        </div>
+      </header>
+
+      <div class="card">
+        <h3><svg class="icon"><use href="#icon-sparkles"/></svg> AI Model</h3>
+        <select id="settings-model" class="select" aria-label="AI Model"></select>
+      </div>
+
+      <div class="card">
+        <h3>Temperature</h3>
+        <input type="range" id="settings-temp" min="0" max="1" step="0.1" value="0.2" aria-label="Temperature" />
+        <span id="settings-temp-val">0.2</span>
+      </div>
+
+      <div class="card">
+        <h3>Max Tokens</h3>
+        <input type="range" id="settings-tokens" min="512" max="8192" step="512" value="8192" aria-label="Max Tokens" />
+        <span id="settings-tokens-val">8192</span>
+      </div>
+
+      <div class="card" id="settings-status"></div>
+
+      <div class="card">
+        <h3>Application</h3>
+        <p><strong>Application:</strong> <span id="settings-app-name"></span></p>
+        <p><strong>Version:</strong> <span id="settings-app-version"></span></p>
+      </div>
+
+      <button class="btn danger icon-label" id="settings-reset"><svg class="icon"><use href="#icon-trash"/></svg> Reset All Settings</button>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast-stack" id="toast-stack"></div>
+
+<script src="/assets/js/app.js"></script>
+</body>
+</html>
